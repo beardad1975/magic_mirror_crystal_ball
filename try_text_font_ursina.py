@@ -1,28 +1,28 @@
-from ursina import *
-app = Ursina()
+from 模擬3D模組 import *
 
-window.borderless = False
+物體 = 新增立方體()
 
-e = Entity(model='quad')
-s = Sequence(
-    2,
-    Func(print, 'one'),
-    Func(e.fade_out, duration=1),
-    2,
-    Func(print, 'two'),
-    Func(e.fade_in, duration=1),
-    2,
-    Func(print, 'three'),
-    loop=True
+自訂動畫 = 動畫組合(
+    動作(物體.位置動畫, [2,2,0], 持續=1),
+    1,
+    動作(物體.位置動畫, [-2,-2,0], 持續=1),
+    動作(物體.縮放動畫, [2,1,1], 持續=1),
+    動作(物體.旋轉動畫,[0,180,0],持續=1),
+    
+    1,
+    動作(物體.位置動畫, [0,0,0], 持續=1),
+    動作(物體.縮放動畫, [2,2,2], 持續=1),
+    動作(物體.旋轉動畫,[0,360,0],持續=1),
+    
     )
 
-s.append(
-    Func(print, 'appended to sequence')
-    )
 
-def input(key):
-    actions = {'s' : s.start, 'f' : s.finish, 'p' : s.pause, 'r' : s.resume, 'k': s.kill}
-    if key in actions:
-        actions[key]()
+def 當按下時(按鍵):
+    if 按鍵 == 'left mouse down' :
+        自訂動畫.開始()
+        
+    
 
-app.run()
+
+
+模擬主迴圈()
