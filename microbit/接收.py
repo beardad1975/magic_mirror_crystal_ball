@@ -8,6 +8,9 @@ from microbit import uart as 序列
 
 廣播.on()
 
+燈光.scroll('ok')
+
+
 while True:
     燈光.clear()
         
