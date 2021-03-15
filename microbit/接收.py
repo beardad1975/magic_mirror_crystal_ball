@@ -21,6 +21,6 @@ while True:
         燈光.set_pixel(4, 4, 3)
         序列.write(包裝資料)
         
-    時間.sleep_ms(50)
+    時間.sleep_ms(200)
     
 

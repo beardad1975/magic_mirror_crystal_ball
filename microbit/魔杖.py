@@ -16,6 +16,6 @@ while True:
     包裝資料 = 結構.pack('hhhh',x, y, z, 晃動)
     廣播.send_bytes(包裝資料)    
     燈光.set_pixel(0, 0, 3)
-    時間.sleep_ms(100)
+    時間.sleep_ms(200)
 
 
